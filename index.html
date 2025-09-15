@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawanson Toluwani</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <h1>Tolu.</h1>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="hero-video" poster="images/hero-fallback.jpg">
+    <source src="videos/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+        <!-- Content -->
+        <div class="hero-content">
+            <h1 id="hero-title">Hello there<br>, I'm Lawanson Toluwani.</h1>
+            <h2 id="hero-sub">I'm a creative front-end Developer😒
+                <h3>Crafting digital experiences that captivate and engage. Our expert UI/UX designers blend creativity with functionality to deliver stunning, user-friendly websites tailored to your unique needs. Let's bring your ideas to life and create
+                    an unforgettable online presence.</h3>
+        </div>
+    </section>
+
+    <!-- SOCIAL LINKS -->
+    <div class="social-bar">
+        <a href="https://twitter.com" target="_blank" class="social-link">
+            <i class="fab fa-x-twitter"></i>
+            <div>
+                <strong>Twitter</strong>
+                <span>Follow me on X!</span>
+            </div>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" class="social-link">
+            <i class="fab fa-linkedin-in"></i>
+            <div>
+                <strong>LinkedIn</strong>
+                <span>Quick look at my  profile</span>
+            </div>
+        </a>
+
+        <a href="https://github.com" target="_blank" class="social-link">
+            <i class="fab fa-github"></i>
+            <div>
+                <strong>Github</strong>
+                <span>Glance at my repo</span>
+            </div>
+        </a>
+
+        <a href="https://instagram.com" target="_blank" class="social-link">
+            <i class="fab fa-instagram"></i>
+            <div>
+                <strong>Instagram</strong>
+                <span>Follow me on Instagram!</span>
+            </div>
+        </a>
+    </div>
+
+
+</body>
+<script src="script.js"></script>
+
+</html>
