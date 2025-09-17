@@ -44,8 +44,8 @@
 
         <!-- Content -->
         <div class="hero-content">
-            <h1 id="hero-title">Hello there<br>, I'm Lawanson Toluwani.</h1>
-            <h2 id="hero-sub">I'm a creative front-end Developer😒
+            <h1 id="hero-title">Hello there,<br>I'm Lawanson Toluwani.</h1>
+            <h2 id="hero-sub">I'm a creative front-end Developer
                 <h3>Crafting digital experiences that captivate and engage. Our expert UI/UX designers blend creativity with functionality to deliver stunning, user-friendly websites tailored to your unique needs. Let's bring your ideas to life and create
                     an unforgettable online presence.</h3>
         </div>
@@ -86,9 +86,154 @@
         </a>
     </div>
 
+    <!-- ===== ABOUT ME SECTION ===== -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="videos/ChatGPT Image Sep 8, 2025, 10_00_12 AM.png" alt="Your Photo">
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    Hey! I'm <strong>Lawanson Toluwani</strong>, a passionate web developer based in Nigeria. I specialize in HTML, CSS, JavaScript, and frameworks like React and Tailwind to create engaging, functional, and responsive websites. I thrive
+                    on solving complex problems and bringing innovative projects to life. When I'm not coding, I enjoy gaming and critical thinking, which often inspires my creative process. My mission is to help individuals and businesses establish a
+                    strong digital presence while delivering exceptional quality in every project.
+                </p>
+                <p>
+                    Let's connect and discuss how I can help you achieve your goals!
+                </p>
+                <a href="mailto:codelaw07@gmail.com" class="btn">Let's Connect</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== ALL-IN-ONE PROFICIENCY CARD ===== -->
+    <div class="main-container">
+        <div class="proficiency-card animate-entry">
+            <h2>My Skills</h2>
+            <div class="skills-arcs">
+                <div class="skill" data-percent="80" data-color="#ff6ec7">
+                    <div class="circle"><span class="percent">0%</span></div>
+                    <div class="skill-name">HTML</div>
+                </div>
+                <div class="skill" data-percent="75" data-color="#00e0ff">
+                    <div class="circle"><span class="percent">0%</span></div>
+                    <div class="skill-name">CSS</div>
+                </div>
+                <div class="skill" data-percent="65" data-color="#ffd700">
+                    <div class="circle"><span class="percent">0%</span></div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                <div class="skill" data-percent="50" data-color="#7c4dff">
+                    <div class="circle"><span class="percent">0%</span></div>
+                    <div class="skill-name">React</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="projects-section">
+        <h2>My Projects</h2>
+        <div class="projects-container">
+
+            <div class="project-card">
+                <img src="project1.jpg" alt="Project 1 Screenshot">
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio website showcasing my skills and projects using HTML, CSS, and JavaScript.</p>
+                    <div class="tech-stack">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="project2.jpg" alt="Project 2 Screenshot">
+                <div class="project-info">
+                    <h3>Todo App</h3>
+                    <p>A responsive todo app with local storage functionality built using JavaScript and CSS animations.</p>
+                    <div class="tech-stack">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Add more projects here -->
+
+        </div>
+
 
 </body>
 <script src="script.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const card = document.querySelector(".proficiency-card");
+        const skills = document.querySelectorAll(".skill");
+
+        // Animate each circle
+        function animateSkills() {
+            skills.forEach(skill => {
+                const circle = skill.querySelector(".circle");
+                const percentText = skill.querySelector(".percent");
+                const percent = parseInt(skill.getAttribute("data-percent"));
+                const color = skill.getAttribute("data-color");
+
+                let current = 0;
+                const duration = 1500; // total animation time
+                const interval = 20; // update every 20ms
+                const step = percent / (duration / interval);
+
+                clearInterval(circle.timer); // reset if already running
+
+                circle.timer = setInterval(() => {
+                    current += step;
+                    if (current >= percent) {
+                        current = percent;
+                        clearInterval(circle.timer);
+                    }
+                    // Update circle fill
+                    circle.style.background = `conic-gradient(${color} 0% ${current}%, rgba(255,255,255,0.1) ${current}% 100%)`;
+                    // Update text
+                    percentText.textContent = `${Math.round(current)}%`;
+                }, interval);
+            });
+        }
+
+        // Intersection Observer for re-trigger
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    card.classList.add("show");
+                    animateSkills();
+                } else {
+                    card.classList.remove("show");
+                    // Reset to 0 when leaving
+                    skills.forEach(skill => {
+                        skill.querySelector(".circle").style.background =
+                            "conic-gradient(rgba(255,255,255,0.1) 0deg 360deg)";
+                        skill.querySelector(".percent").textContent = "0%";
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        observer.observe(card);
+    });
+</script>
+
+
 
 
 </html>

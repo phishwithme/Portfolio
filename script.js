@@ -53,3 +53,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(hero);
 });
+
+const skills = document.querySelectorAll('.skill');
+
+skills.forEach(skill => {
+    const circle = skill.querySelector('.circle');
+    const percentElem = circle.querySelector('.percent');
+    const target = skill.dataset.percent;
+    const color = skill.dataset.color;
+
+    let current = 0;
+    const interval = setInterval(() => {
+        if (current >= target) {
+            clearInterval(interval);
+        } else {
+            current++;
+            percentElem.textContent = current + '%';
+            circle.style.background = `conic-gradient(${color} 0deg ${current*3.6}deg, rgba(255,255,255,0.1) ${current*3.6}deg 360deg)`;
+        }
+    }, 15);
+});
